@@ -69,7 +69,6 @@ function showNameScreen() {
   nameVideo.play();
 }
 
-
 // function showNameScreen() {
 //   intro2.classList.add("hidden");
 
