@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>SeekOut Signal</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
@@ -11,25 +10,33 @@
 </head>
 <body>
 
-  <!-- INTRO VIDEO -->
-  <video id="intro-video" playsinline muted autoplay>
+  <!-- INTRO VIDEO 1 (MUTED FOR MOBILE AUTOPLAY) -->
+  <video id="intro-video-1" playsinline muted>
     <source src="background1.mp4" type="video/mp4">
   </video>
 
-  <!-- MAIN BACKGROUND VIDEO -->
-  <video id="bg-video" playsinline loop muted>
+  <!-- INTRO VIDEO 2 -->
+  <video id="intro-video-2" playsinline class="hidden-video">
+    <source src="background2.mp4" type="video/mp4">
+  </video>
+
+  <!-- NAME SCREEN VIDEO -->
+  <video loop playsinline id="name-video" class="hidden-video">
+    <source src="background3.mp4" type="video/mp4">
+  </video>
+
+  <!-- MAIN STORY VIDEO -->
+  <video loop playsinline id="bg-video" class="hidden-video">
     <source src="background.mp4" type="video/mp4">
   </video>
 
-  <!-- DARK OVERLAY -->
-  <div class="overlay"></div>
+  <div class="overlay hidden-video"></div>
 
   <!-- ROTATE WARNING -->
   <div id="rotate-warning">
-    ROTATE YOUR PHONE<br>TO LANDSCAPE
+    ROTATE YOUR PHONE FOR BEST EXPERIENCE
   </div>
 
-  <!-- MAIN CONTENT -->
   <div id="content" class="hidden">
 
     <div class="screen" id="screen-name">
@@ -40,24 +47,25 @@
 
     <div class="screen hidden" id="screen-story">
       <p id="story-text" class="story"></p>
-      <button onclick="startTest()">CONTINUE</button>
+      <button onclick="startTest()">READY TO HELP</button>
     </div>
 
     <div class="screen hidden" id="screen-question">
       <p class="glitch">TEST INCOMING</p>
       <p id="question-text" class="story"></p>
-      <input type="text" id="answer" placeholder="YOUR ANSWER">
       <button onclick="submitAnswer()">TRANSMIT</button>
     </div>
 
     <div class="screen hidden" id="screen-success">
-      <p class="glitch big">SIGNAL STABILISED</p>
+      <p class="glitch big">SIGNAL DISRUPTED</p>
+      <p class="story">YOU NOTICED THE ANOMALY.</p>
       <p class="story highlight">SEEKOUT · 9–11 JANUARY</p>
     </div>
 
     <div class="screen hidden" id="screen-fail">
-      <p class="glitch big">SIGNAL LOST</p>
-      <p class="story highlight">TRY AGAIN AT SEEKOUT</p>
+      <p class="glitch big">SIGNAL STILL PERSISTS</p>
+      <p class="story">YOU MISSED THE FIRST HINT.</p>
+      <p class="story highlight">SEEKOUT · 9–11 JANUARY</p>
     </div>
 
   </div>
