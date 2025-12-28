@@ -1,21 +1,45 @@
+// ===============================
+// ELEMENT REFERENCES
+// ===============================
 const intro1 = document.getElementById("intro-video-1");
 const intro2 = document.getElementById("intro-video-2");
 const nameVideo = document.getElementById("name-video");
 const bgVideo = document.getElementById("bg-video");
+
 const tap = document.getElementById("tap-to-start");
 const content = document.getElementById("content");
 const overlay = document.querySelector(".overlay");
 
+const screenName = document.getElementById("screen-name");
+const screenStory = document.getElementById("screen-story");
+const screenQuestion = document.getElementById("screen-question");
+const screenSuccess = document.getElementById("screen-success");
+const screenFail = document.getElementById("screen-fail");
+
+const usernameInput = document.getElementById("username");
+const storyText = document.getElementById("story-text");
+const questionText = document.getElementById("question-text");
+const answerInput = document.getElementById("answer");
+
+// ===============================
+// QUESTION BANK
+// ===============================
 const questions = [
   { q: "INSTI REVERSED IS?", a: "ITSNI" },
   { q: "CAMPUS → ?", a: "SUPMAC" }
 ];
 
-tap.onclick = () => {
+// ===============================
+// TAP TO START (REQUIRED FOR MOBILE)
+// ===============================
+tap.addEventListener("click", () => {
   tap.style.display = "none";
   playIntro1();
-};
+});
 
+// ===============================
+// INTRO FLOW
+// ===============================
 function playIntro1() {
   intro1.play();
   intro1.onended = playIntro2;
@@ -30,14 +54,19 @@ function playIntro2() {
 
 function showNameScreen() {
   intro2.classList.add("hidden");
+
   nameVideo.classList.remove("hidden");
   overlay.classList.remove("hidden");
-  nameVideo.play();
   content.classList.remove("hidden");
+
+  nameVideo.play();
 }
 
+// ===============================
+// START MAIN EXPERIENCE
+// ===============================
 function startSignal() {
-  const name = username.value.trim();
+  const name = usernameInput.value.trim();
   if (!name) return;
 
   nameVideo.pause();
@@ -46,27 +75,31 @@ function startSignal() {
   bgVideo.classList.remove("hidden");
   bgVideo.play();
 
-  screen-name.classList.add("hidden");
-  screen-story.classList.remove("hidden");
+  screenName.classList.add("hidden");
+  screenStory.classList.remove("hidden");
 
-  story-text.innerText =
-`HI ${name}
-SOMETHING IS WRONG AT INSTI
-THIS IS WHERE IT BEGINS`;
+  storyText.innerText =
+`HI ${name},
+
+SOMETHING IS WRONG AT INSTI.
+SIGNALS ARE BLEEDING THROUGH.
+THIS IS WHERE IT BEGINS.`;
 }
 
+// ===============================
+// START QUESTION
+// ===============================
 function startTest() {
-  screen-story.classList.add("hidden");
-  screen-question.classList.remove("hidden");
+  screenStory.classList.add("hidden");
+  screenQuestion.classList.remove("hidden");
 
-  const q = questions[Math.floor(Math.random()*questions.length)];
-  localStorage.setItem("ans", q.a);
-  question-text.innerText = q.q;
+  const random = questions[Math.floor(Math.random() * questions.length)];
+  localStorage.setItem("correctAnswer", random.a);
+  questionText.innerText = random.q;
 }
 
+// ===============================
+// CHECK ANSWER
+// ===============================
 function submitAnswer() {
-  screen-question.classList.add("hidden");
-  answer.value.toUpperCase() === localStorage.getItem("ans")
-    ? screen-success.classList.remove("hidden")
-    : screen-fail.classList.remove("hidden");
-}
+  const userAnswer = answerInput.v
