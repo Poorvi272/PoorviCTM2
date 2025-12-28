@@ -1,14 +1,15 @@
 // ===============================
 // ELEMENT REFERENCES
 // ===============================
+const tapScreen = document.getElementById("tap-to-start");
+
 const intro1 = document.getElementById("intro-video-1");
 const intro2 = document.getElementById("intro-video-2");
 const nameVideo = document.getElementById("name-video");
 const bgVideo = document.getElementById("bg-video");
 
-const tapScreen = document.getElementById("tap-to-start");
-const content = document.getElementById("content");
 const overlay = document.querySelector(".overlay");
+const content = document.getElementById("content");
 
 const screenName = document.getElementById("screen-name");
 const screenStory = document.getElementById("screen-story");
@@ -26,11 +27,12 @@ const answerInput = document.getElementById("answer");
 // ===============================
 const questions = [
   { q: "INSTI REVERSED IS?", a: "ITSNI" },
-  { q: "CAMPUS → ?", a: "SUPMAC" }
+  { q: "CAMPUS → ?", a: "SUPMAC" },
+  { q: "LEFT → TFEL, RIGHT → ?", a: "THGIR" }
 ];
 
 // ===============================
-// TAP TO START (MOBILE SAFE)
+// TAP TO START (REQUIRED)
 // ===============================
 tapScreen.addEventListener("click", () => {
   tapScreen.style.display = "none";
@@ -38,7 +40,7 @@ tapScreen.addEventListener("click", () => {
 });
 
 // ===============================
-// INTRO FLOW
+// INTRO VIDEO FLOW
 // ===============================
 function playIntro1() {
   intro1.play();
@@ -48,6 +50,7 @@ function playIntro1() {
 function playIntro2() {
   intro1.classList.add("hidden");
   intro2.classList.remove("hidden");
+
   intro2.play();
   intro2.onended = showNameScreen;
 }
@@ -95,6 +98,7 @@ function startTest() {
 
   const random = questions[Math.floor(Math.random() * questions.length)];
   localStorage.setItem("correctAnswer", random.a);
+
   questionText.innerText = random.q;
 }
 
@@ -103,11 +107,11 @@ function startTest() {
 // ===============================
 function submitAnswer() {
   const userAnswer = answerInput.value.trim().toUpperCase();
-  const correct = localStorage.getItem("correctAnswer");
+  const correctAnswer = localStorage.getItem("correctAnswer");
 
   screenQuestion.classList.add("hidden");
 
-  if (userAnswer === correct) {
+  if (userAnswer === correctAnswer) {
     screenSuccess.classList.remove("hidden");
   } else {
     screenFail.classList.remove("hidden");
