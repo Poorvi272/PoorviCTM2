@@ -127,36 +127,6 @@ button {
 /* ===============================
    ROTATE TO LANDSCAPE WARNING
    =============================== */
-/* #rotate-warning {
-  position: fixed;
-  inset: 0;
-  background: black;
-  color: #e50914;
-  font-family: 'Cinzel', serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 100;
-}
-
-/* Show warning ONLY on phones in portrait */
-@media screen and (max-width: 900px) and (orientation: portrait) {
-  #rotate-warning {
-    display: flex;
-  }
-
-  /* Hide everything else */
-  video,
-  #content,
-  .overlay,
-  #tap-to-start {
-    display: none !important;
-  }
-} */
-
 #rotate-warning {
   position: fixed;
   inset: 0;
@@ -165,13 +135,16 @@ button {
   font-family: 'Cinzel', serif;
   font-size: 22px;
   letter-spacing: 2px;
+
   display: none;
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: 200;
+
+  z-index: 9999;
 }
 
+/* PHONE IN PORTRAIT → SHOW ROTATE SCREEN */
 @media screen and (orientation: portrait) {
   #rotate-warning {
     display: flex;
@@ -182,5 +155,12 @@ button {
   .overlay,
   #tap-to-start {
     display: none !important;
+  }
+}
+
+/* PHONE IN LANDSCAPE → HIDE ROTATE SCREEN */
+@media screen and (orientation: landscape) {
+  #rotate-warning {
+    display: none;
   }
 }
