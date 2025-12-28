@@ -52,11 +52,26 @@ video {
 }
 
 .screen {
+  background: rgba(0,0,0,0.78);
+  padding: 28px 30px;
+  border: 1px solid rgba(229,9,20,0.45);
+  text-align: center;
+
+  width: 90%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* .screen {
   background: rgba(0,0,0,0.75);
   padding: 26px;
   border: 1px solid rgba(229,9,20,0.4);
   text-align: center;
-}
+} */
 
 .hidden {
   display: none;
@@ -65,12 +80,23 @@ video {
 .big { font-size: 30px; }
 .story { font-size: 17px; margin: 12px auto; }
 
-input, button {
+input,
+button {
+  margin-top: 14px;
+  padding: 12px;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+
+/* input, button {
   margin-top: 14px;
   padding: 12px;
   width: 100%;
   font-family: inherit;
-}
+} */
 
 button {
   background: #e50914;
