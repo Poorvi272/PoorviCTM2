@@ -195,3 +195,12 @@ button {
 
   /* DO NOT force display here */
 }
+/* ===============================
+   MOBILE VIDEO FIX (NO CROPPING)
+   =============================== */
+@media (max-width: 768px) {
+  video {
+    object-fit: contain; /* prevents zoom + crop on phone */
+  }
+}
+
