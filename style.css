@@ -9,43 +9,31 @@ body {
   overflow: hidden;
 }
 
-/* Fog only for first screen */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at top, rgba(229,9,20,0.18), transparent 60%),
-    radial-gradient(circle at bottom, rgba(229,9,20,0.12), transparent 60%);
-  z-index: -2;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.07;
-  z-index: -1;
-}
-
-/* Remove fog after video starts */
-body.video-active::before,
-body.video-active::after {
-  display: none;
-}
-
-/* Background video */
-#bg-video {
+/* VIDEOS */
+video {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+  background: black;
+}
+
+#intro-video-1,
+#intro-video-2 {
+  z-index: 10;
+}
+
+#name-video,
+#bg-video {
   z-index: -4;
 }
 
-/* Dark overlay */
+.hidden-video {
+  display: none;
+}
+
+/* OVERLAY */
 .overlay {
   position: fixed;
   inset: 0;
@@ -53,12 +41,7 @@ body.video-active::after {
   z-index: -3;
 }
 
-/* Hide video initially */
-.hidden-video {
-  display: none;
-}
-
-/* Content centering */
+/* CONTENT */
 #content {
   position: fixed;
   inset: 0;
@@ -68,37 +51,26 @@ body.video-active::after {
   z-index: 5;
 }
 
-/* Black translucent box */
-.screen {
-  text-align: center;
-  padding: 26px 28px;
-  background: rgba(0,0,0,0.75);
-  border: 1px solid rgba(229,9,20,0.45);
-  backdrop-filter: blur(4px);
-  display: inline-block;
-  max-width: 85vw;
-  animation: float 6s ease-in-out infinite;
-}
-
 .hidden {
   display: none;
 }
 
-.big {
-  font-size: 30px;
+/* SCREEN */
+.screen {
+  text-align: center;
+  padding: 26px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(229,9,20,0.45);
+  max-width: 85vw;
+  animation: float 6s ease-in-out infinite;
 }
 
-.story {
-  font-size: 17px;
-  margin: 14px auto;
-  max-width: 320px;
-}
+/* TEXT */
+.big { font-size: 30px; }
+.story { font-size: 16px; margin: 14px auto; max-width: 320px; }
+.highlight { font-size: 18px; letter-spacing: 3px; }
 
-.highlight {
-  font-size: 18px;
-  letter-spacing: 3px;
-}
-
+/* INPUT */
 input {
   width: 100%;
   padding: 12px;
@@ -106,8 +78,6 @@ input {
   background: black;
   border: 1px solid #e50914;
   color: #e50914;
-  font-family: inherit;
-  text-transform: uppercase;
 }
 
 button {
@@ -117,13 +87,11 @@ button {
   border: none;
   color: black;
   font-weight: bold;
-  font-family: inherit;
   cursor: pointer;
 }
 
-.glitch {
-  animation: flicker 1.4s infinite;
-}
+/* EFFECTS */
+.glitch { animation: flicker 1.4s infinite; }
 
 @keyframes flicker {
   0% { opacity: 1; }
@@ -132,7 +100,24 @@ button {
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ROTATE WARNING – ONLY FOR PHONES */
+#rotate-warning {
+  display: none;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  #rotate-warning {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: black;
+    color: #e50914;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 20;
+  }
 }
