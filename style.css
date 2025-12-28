@@ -18,17 +18,24 @@ body {
   z-index: -5;
 } */
 /* ===============================
-   VIDEO — FULL FRAME, NO CROP
+   FULL-SCREEN VIDEO (ALL DEVICES)
    =============================== */
 video {
   position: fixed;
-  inset: 0;
+  top: 50%;
+  left: 50%;
   width: 100vw;
   height: 100vh;
+
+  transform: translate(-50%, -50%);
+
+  object-fit: cover;          /* FULL SCREEN */
+  object-position: center;    /* CENTER CROP */
+
   background: black;
   z-index: -5;
-  object-fit: contain; /* SHOW FULL VIDEO */
 }
+
 
 
 
