@@ -62,12 +62,13 @@ function showNameScreen() {
   nameVideo.classList.remove("hidden");
   overlay.classList.remove("hidden");
 
-  // show content ONLY now
-  content.classList.remove("hidden");
+  // NOW reveal content for the first time
+  content.style.visibility = "visible";
   screenName.classList.remove("hidden");
 
   nameVideo.play();
 }
+
 
 // function showNameScreen() {
 //   intro2.classList.add("hidden");
