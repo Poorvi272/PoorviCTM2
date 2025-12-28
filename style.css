@@ -18,9 +18,6 @@ body {
   z-index: -5;
 } */
 
-/* ===============================
-   VIDEO BASE (DESKTOP)
-   =============================== */
 video {
   position: fixed;
   inset: 0;
@@ -28,8 +25,9 @@ video {
   height: 100vh;
   background: black;
   z-index: -5;
-  object-fit: cover; /* Laptop / desktop */
+  object-fit: cover;
 }
+
 
 
 /* INTRO VIDEOS – SHOW FULL FRAME */
@@ -208,4 +206,13 @@ button {
     object-fit: contain; /* prevents zoom + crop on phone */
   }
 }
+/* =========================================
+   MOBILE FIX — ONLY FIRST INTRO VIDEO
+   ========================================= */
+@media (max-width: 768px) {
+  #intro-video-1 {
+    object-position: center 20%;
+  }
+}
+
 
