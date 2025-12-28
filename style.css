@@ -8,7 +8,7 @@ body {
 }
 
 /* VIDEOS */
-/* video {
+video {
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -16,17 +16,8 @@ body {
   object-fit: cover;
   background: black:
   z-index: -5;
-} */
-
-video {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  z-index: -5;
-  object-fit: cover;
 }
+
 
 
 
@@ -195,24 +186,4 @@ button {
   #rotate-warning {
     display: none;
   }
-
-  /* DO NOT force display here */
-}
-/* ===============================
-   MOBILE VIDEO FIX (NO CROPPING)
-   =============================== */
-@media (max-width: 768px) {
-  video {
-    object-fit: contain; /* prevents zoom + crop on phone */
-  }
-}
-/* =========================================
-   MOBILE FIX — ONLY FIRST INTRO VIDEO
-   ========================================= */
-@media (max-width: 768px) {
-  #intro-video-1 {
-    object-position: center 30%;
-  }
-}
-
 
