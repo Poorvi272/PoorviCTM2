@@ -58,12 +58,27 @@ function playIntro2() {
 function showNameScreen() {
   intro2.classList.add("hidden");
 
+  // show background3
   nameVideo.classList.remove("hidden");
   overlay.classList.remove("hidden");
+
+  // show content ONLY now
   content.classList.remove("hidden");
+  screenName.classList.remove("hidden");
 
   nameVideo.play();
 }
+
+
+// function showNameScreen() {
+//   intro2.classList.add("hidden");
+
+//   nameVideo.classList.remove("hidden");
+//   overlay.classList.remove("hidden");
+//   content.classList.remove("hidden");
+
+//   nameVideo.play();
+// }
 
 // ===============================
 // START MAIN EXPERIENCE
