@@ -8,7 +8,7 @@ body {
 }
 
 /* VIDEOS */
-video {
+/* video {
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -16,7 +16,31 @@ video {
   object-fit: cover;
   background: black:
   z-index: -5;
+} */
+
+/* ALL VIDEOS BASE */
+video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
 }
+
+/* INTRO VIDEOS – SHOW FULL FRAME */
+#intro-video-1,
+#intro-video-2 {
+  object-fit: contain;
+  z-index: 10;
+}
+
+/* BACKGROUND VIDEOS – IMMERSIVE */
+#name-video,
+#bg-video {
+  object-fit: cover;
+  z-index: -5;
+}
+
 
 /* TAP SCREEN */
 #tap-to-start {
