@@ -27,7 +27,6 @@ const answerInput = document.getElementById("answer");
 // ===============================
 const questions = [
   { q: "INSTI REVERSED IS?", a: "ITSNI" },
-  { q: "CAMPUS → ?", a: "SUPMAC" },
   { q: "LEFT → TFEL, RIGHT → ?", a: "THGIR" }
 ];
 
