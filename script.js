@@ -6,27 +6,47 @@ const questions = [
   { q: "IF LEFT BECOMES TFEL, WHAT DOES RIGHT BECOME?", a: "THGIR" }
 ];
 
+const intro1 = document.getElementById("intro-video-1");
+const intro2 = document.getElementById("intro-video-2");
+const nameVideo = document.getElementById("name-video");
+const bgVideo = document.getElementById("bg-video");
+
+window.onload = () => {
+  intro1.play().catch(() => {});
+};
+
+intro1.onended = () => {
+  intro1.style.display = "none";
+  intro2.classList.remove("hidden-video");
+  intro2.volume = 1;
+  intro2.play();
+};
+
+intro2.onended = () => {
+  intro2.style.display = "none";
+
+  nameVideo.classList.remove("hidden-video");
+  nameVideo.play();
+
+  document.querySelector(".overlay").classList.remove("hidden-video");
+  document.getElementById("content").classList.remove("hidden");
+};
+
 function startSignal() {
   const name = document.getElementById("username").value.trim();
   if (!name) return;
 
-  const video = document.getElementById("bg-video");
+  nameVideo.pause();
+  nameVideo.classList.add("hidden-video");
 
-  // Show video + overlay
-  video.classList.remove("hidden-video");
-  document.querySelector(".overlay").classList.remove("hidden-video");
-  document.body.classList.add("video-active");
-
-  // ▶️ PLAY VIDEO WITH ITS OWN AUDIO
-  video.muted = false;
-  video.volume = 1.0;
-  video.play();
+  bgVideo.classList.remove("hidden-video");
+  bgVideo.play();
 
   document.getElementById("screen-name").classList.add("hidden");
   document.getElementById("screen-story").classList.remove("hidden");
 
   document.getElementById("story-text").innerText =
-`HI ${name}…
+`HI ${name},
 
 SOMETHING IS WRONG AT INSTI.
 SIGNALS ARE BLEEDING THROUGH.
@@ -37,26 +57,16 @@ function startTest() {
   document.getElementById("screen-story").classList.add("hidden");
   document.getElementById("screen-question").classList.remove("hidden");
 
-  let savedQuestion = localStorage.getItem("assignedQuestion");
-  if (!savedQuestion) {
-    const random = questions[Math.floor(Math.random() * questions.length)];
-    localStorage.setItem("assignedQuestion", JSON.stringify(random));
-    savedQuestion = JSON.stringify(random);
-  }
-
-  const questionObj = JSON.parse(savedQuestion);
-  document.getElementById("question-text").innerText = questionObj.q;
+  const random = questions[Math.floor(Math.random() * questions.length)];
+  localStorage.setItem("answer", random.a);
+  document.getElementById("question-text").innerText = random.q;
 }
 
 function submitAnswer() {
-  const userAnswer = document.getElementById("answer").value.trim().toUpperCase();
-  const correct = JSON.parse(localStorage.getItem("assignedQuestion")).a;
+  const correct = localStorage.getItem("answer");
 
   document.getElementById("screen-question").classList.add("hidden");
-
-  if (userAnswer === correct) {
-    document.getElementById("screen-success").classList.remove("hidden");
-  } else {
-    document.getElementById("screen-fail").classList.remove("hidden");
-  }
+  document.getElementById(
+    correct ? "screen-success" : "screen-fail"
+  ).classList.remove("hidden");
 }
