@@ -18,14 +18,19 @@ body {
   z-index: -5;
 } */
 
-/* ALL VIDEOS BASE */
+/* ===============================
+   VIDEO BASE (DESKTOP)
+   =============================== */
 video {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
   background: black;
+  z-index: -5;
+  object-fit: cover; /* Laptop / desktop */
 }
+
 
 /* INTRO VIDEOS – SHOW FULL FRAME */
 #intro-video-1,
