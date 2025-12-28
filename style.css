@@ -49,7 +49,18 @@ video {
   justify-content: center;
   align-items: center;
   z-index: 5;
+
+  /* ADD THIS */
+  visibility: hidden;
 }
+/* #content {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+} */
 
 .screen {
   background: rgba(0,0,0,0.78);
