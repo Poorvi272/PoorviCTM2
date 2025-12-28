@@ -6,7 +6,7 @@ const intro2 = document.getElementById("intro-video-2");
 const nameVideo = document.getElementById("name-video");
 const bgVideo = document.getElementById("bg-video");
 
-const tap = document.getElementById("tap-to-start");
+const tapScreen = document.getElementById("tap-to-start");
 const content = document.getElementById("content");
 const overlay = document.querySelector(".overlay");
 
@@ -30,10 +30,10 @@ const questions = [
 ];
 
 // ===============================
-// TAP TO START (REQUIRED FOR MOBILE)
+// TAP TO START (MOBILE SAFE)
 // ===============================
-tap.addEventListener("click", () => {
-  tap.style.display = "none";
+tapScreen.addEventListener("click", () => {
+  tapScreen.style.display = "none";
   playIntro1();
 });
 
@@ -102,4 +102,14 @@ function startTest() {
 // CHECK ANSWER
 // ===============================
 function submitAnswer() {
-  const userAnswer = answerInput.v
+  const userAnswer = answerInput.value.trim().toUpperCase();
+  const correct = localStorage.getItem("correctAnswer");
+
+  screenQuestion.classList.add("hidden");
+
+  if (userAnswer === correct) {
+    screenSuccess.classList.remove("hidden");
+  } else {
+    screenFail.classList.remove("hidden");
+  }
+}
