@@ -8,48 +8,15 @@ body {
 }
 
 /* VIDEOS */
-/* video {
+video {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  background: black:
-  z-index: -5;
-} */
-/* ===============================
-   FULL-SCREEN VIDEO (ALL DEVICES)
-   =============================== */
-video {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-
-  transform: translate(-50%, -50%);
-
-  object-fit: cover;          /* FULL SCREEN */
-  object-position: center;    /* CENTER CROP */
-
   background: black;
   z-index: -5;
 }
-
-
-
-
-
-/* INTRO VIDEOS – SHOW FULL FRAME */
-/* #intro-video-1,
-#intro-video-2 {
-  object-fit: contain;
-  z-index: 10;
-} */
-
-/* BACKGROUND VIDEOS – IMMERSIVE */
-
-
 
 /* TAP SCREEN */
 #tap-to-start {
@@ -86,20 +53,14 @@ video {
   /* ADD THIS */
   visibility: hidden;
 }
-/* #content {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
-} */
+
 
 .screen {
-  background: rgba(0,0,0,0.78);
-  padding: 28px 30px;
-  border: 1px solid rgba(229,9,20,0.45);
   text-align: center;
+  padding: 28px 30px;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid rgba(229, 9, 20, 0.45);
+  backdrop-filter: blur(6px);
 
   width: 90%;
   max-width: 420px;
@@ -107,15 +68,10 @@ video {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  animation: float 6s ease-in-out infinite;
 }
 
-
-/* .screen {
-  background: rgba(0,0,0,0.75);
-  padding: 26px;
-  border: 1px solid rgba(229,9,20,0.4);
-  text-align: center;
-} */
 
 .hidden {
   display: none;
@@ -126,21 +82,11 @@ video {
 
 input,
 button {
-  margin-top: 14px;
-  padding: 12px;
   width: 100%;
   max-width: 320px;
   box-sizing: border-box;
-  font-family: inherit;
 }
 
-
-/* input, button {
-  margin-top: 14px;
-  padding: 12px;
-  width: 100%;
-  font-family: inherit;
-} */
 
 button {
   background: #e50914;
@@ -157,9 +103,6 @@ button {
   0%,100% { opacity:1; }
   50% { opacity:0.6; }
 }
-/* ===============================
-   ROTATE TO LANDSCAPE WARNING
-   =============================== */
 /* ===============================
    ROTATE TO LANDSCAPE (FINAL FIX)
    =============================== */
@@ -201,4 +144,7 @@ button {
   #rotate-warning {
     display: none;
   }
+
+  /* DO NOT force display here */
+}
 
