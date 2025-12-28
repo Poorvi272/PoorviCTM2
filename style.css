@@ -127,7 +127,7 @@ button {
 /* ===============================
    ROTATE TO LANDSCAPE WARNING
    =============================== */
-#rotate-warning {
+/* #rotate-warning {
   position: fixed;
   inset: 0;
   background: black;
@@ -149,6 +149,34 @@ button {
   }
 
   /* Hide everything else */
+  video,
+  #content,
+  .overlay,
+  #tap-to-start {
+    display: none !important;
+  }
+} */
+
+#rotate-warning {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: #e50914;
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 200;
+}
+
+@media screen and (orientation: portrait) {
+  #rotate-warning {
+    display: flex;
+  }
+
   video,
   #content,
   .overlay,
