@@ -22,11 +22,11 @@ video {
 
 
 /* INTRO VIDEOS – SHOW FULL FRAME */
-#intro-video-1,
+/* #intro-video-1,
 #intro-video-2 {
   object-fit: contain;
   z-index: 10;
-}
+} */
 
 /* BACKGROUND VIDEOS – IMMERSIVE */
 #name-video,
