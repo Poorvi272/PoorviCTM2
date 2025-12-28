@@ -8,7 +8,7 @@ body {
 }
 
 /* VIDEOS */
-video {
+/* video {
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -16,6 +16,18 @@ video {
   object-fit: cover;
   background: black:
   z-index: -5;
+} */
+/* ===============================
+   VIDEO — FULL FRAME, NO CROP
+   =============================== */
+video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: -5;
+  object-fit: contain; /* SHOW FULL VIDEO */
 }
 
 
@@ -29,11 +41,7 @@ video {
 } */
 
 /* BACKGROUND VIDEOS – IMMERSIVE */
-#name-video,
-#bg-video {
-  object-fit: cover;
-  z-index: -5;
-}
+
 
 
 /* TAP SCREEN */
