@@ -4,8 +4,6 @@ body {
   color: #e50914;
   font-family: 'Cinzel', serif;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  height: 100vh;
   overflow: hidden;
 }
 
@@ -17,20 +15,22 @@ video {
   height: 100vh;
   object-fit: cover;
   background: black;
+  z-index: -5;
 }
 
-#intro-video-1,
-#intro-video-2 {
-  z-index: 10;
-}
-
-#name-video,
-#bg-video {
-  z-index: -4;
-}
-
-.hidden-video {
-  display: none;
+/* TAP SCREEN */
+#tap-to-start {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: #e50914;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  letter-spacing: 2px;
+  z-index: 50;
+  cursor: pointer;
 }
 
 /* OVERLAY */
@@ -46,78 +46,44 @@ video {
   position: fixed;
   inset: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 5;
+}
+
+.screen {
+  background: rgba(0,0,0,0.75);
+  padding: 26px;
+  border: 1px solid rgba(229,9,20,0.4);
+  text-align: center;
 }
 
 .hidden {
   display: none;
 }
 
-/* SCREEN */
-.screen {
-  text-align: center;
-  padding: 26px;
-  background: rgba(0,0,0,0.75);
-  border: 1px solid rgba(229,9,20,0.45);
-  max-width: 85vw;
-  animation: float 6s ease-in-out infinite;
-}
-
-/* TEXT */
 .big { font-size: 30px; }
-.story { font-size: 16px; margin: 14px auto; max-width: 320px; }
-.highlight { font-size: 18px; letter-spacing: 3px; }
+.story { font-size: 17px; margin: 12px auto; }
 
-/* INPUT */
-input {
-  width: 100%;
-  padding: 12px;
+input, button {
   margin-top: 14px;
-  background: black;
-  border: 1px solid #e50914;
-  color: #e50914;
+  padding: 12px;
+  width: 100%;
+  font-family: inherit;
 }
 
 button {
-  margin-top: 18px;
-  padding: 12px 26px;
   background: #e50914;
   border: none;
-  color: black;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* EFFECTS */
-.glitch { animation: flicker 1.4s infinite; }
+.glitch {
+  animation: flicker 1.4s infinite;
+}
 
 @keyframes flicker {
-  0% { opacity: 1; }
-  50% { opacity: 0.6; }
-  100% { opacity: 1; }
-}
-
-@keyframes float {
-  50% { transform: translateY(-10px); }
-}
-
-/* ROTATE WARNING – ONLY FOR PHONES */
-#rotate-warning {
-  display: none;
-}
-
-@media (max-width: 768px) and (orientation: portrait) {
-  #rotate-warning {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    background: black;
-    color: #e50914;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: 20;
-  }
+  0%,100% { opacity:1; }
+  50% { opacity:0.6; }
 }
