@@ -127,6 +127,9 @@ button {
 /* ===============================
    ROTATE TO LANDSCAPE WARNING
    =============================== */
+/* ===============================
+   ROTATE TO LANDSCAPE (FINAL FIX)
+   =============================== */
 #rotate-warning {
   position: fixed;
   inset: 0;
@@ -141,26 +144,30 @@ button {
   justify-content: center;
   text-align: center;
 
-  z-index: 9999;
+  z-index: 10000;
 }
 
-/* PHONE IN PORTRAIT → SHOW ROTATE SCREEN */
-@media screen and (orientation: portrait) {
+/* PHONE IN PORTRAIT */
+@media (orientation: portrait) {
   #rotate-warning {
     display: flex;
   }
 
+  /* FORCE HIDE EVERYTHING ELSE */
+  #tap-to-start,
   video,
   #content,
-  .overlay,
-  #tap-to-start {
+  .overlay {
     display: none !important;
+    visibility: hidden !important;
   }
 }
 
-/* PHONE IN LANDSCAPE → HIDE ROTATE SCREEN */
-@media screen and (orientation: landscape) {
+/* PHONE IN LANDSCAPE */
+@media (orientation: landscape) {
   #rotate-warning {
     display: none;
   }
+
+  /* DO NOT force display here */
 }
