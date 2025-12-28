@@ -211,7 +211,7 @@ button {
    ========================================= */
 @media (max-width: 768px) {
   #intro-video-1 {
-    object-position: center 20%;
+    object-position: center 30%;
   }
 }
 
